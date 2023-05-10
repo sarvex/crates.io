@@ -23,9 +23,9 @@
     "lint:js": "eslint . --cache",
     "prettier": "prettier --write '**/*.js'",
     "start": "./script/ember.sh serve",
-    "start:live": "./script/ember.sh serve --proxy https://crates.io",
-    "start:local": "./script/ember.sh serve --proxy http://127.0.0.1:8888",
-    "start:staging": "./script/ember.sh serve --proxy https://staging-crates-io.herokuapp.com",
+    "start:live": "PROXY_BACKEND=https://crates.io ./script/ember.sh serve",
+    "start:local": "PROXY_BACKEND=http://127.0.0.1:8888 ./script/ember.sh serve",
+    "start:staging": "PROXY_BACKEND=https://staging-crates-io.herokuapp.com ./script/ember.sh serve",
     "test": "ember exam --split=2 --parallel",
     "test-coverage": "COVERAGE=true npm run test && ember coverage-merge && rm -rf coverage_* coverage/coverage-summary.json && nyc report"
   },
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@juggle/resize-observer": "3.4.0",
-    "@sentry/browser": "7.51.0",
-    "@sentry/utils": "7.51.0",
+    "@sentry/browser": "7.51.2",
+    "@sentry/utils": "7.51.2",
     "chart.js": "4.3.0",
     "copy-text-to-clipboard": "3.1.0",
     "date-fns": "2.30.0",
@@ -111,7 +111,7 @@
     "ember-truth-helpers": "3.1.1",
     "ember-web-app": "5.0.1",
     "ember-window-mock": "0.8.1",
-    "eslint": "8.39.0",
+    "eslint": "8.40.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-ember": "11.5.2",
     "eslint-plugin-ember-concurrency": "0.5.1",
@@ -119,7 +119,8 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-qunit": "7.3.4",
     "eslint-plugin-qunit-dom": "0.2.0",
-    "eslint-plugin-unicorn": "46.0.0",
+    "eslint-plugin-unicorn": "47.0.0",
+    "http-proxy": "1.18.1",
     "loader.js": "4.7.0",
     "match-json": "1.3.5",
     "miragejs": "0.1.47",
@@ -132,7 +133,7 @@
     "qunit-console-grouper": "0.3.0",
     "qunit-dom": "2.0.0",
     "tracked-built-ins": "3.1.1",
-    "webpack": "5.81.0"
+    "webpack": "5.82.0"
   },
   "resolutions": {
     "ember-css-modules>postcss": "8.4.16",
